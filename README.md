@@ -1,1 +1,1 @@
-Huffman Compression Tree in Java :D
+Huffman Word Compression Tree in Java :D
