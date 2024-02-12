@@ -16,4 +16,19 @@ public class Huffman {
         }
 
     }
+
+    public static boolean isLeaf(Node root){
+        return root.left == null && root.right == null;
+    }
+
+    public static void encodeData(Node root, String str, Map<Character, String> huffman) {
+        if(root == null){
+            return;
+        }
+        if(isLeaf(root)){
+            huffman.put(root.ch, str.length() > 0 ? str : "1");
+        }
+        encodeData(root.left, str + "0", huffman);
+        encodeData(root.right, str + "1",huffman);
+    }
 }
