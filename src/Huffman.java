@@ -48,5 +48,15 @@ public class Huffman {
         return index;
     }
 
+    public static void createHuffmanTree(String text) {
+        if(text == null || text.length() == 0){
+            return;
+        }
 
+        HashMap<Character, Integer> count = new HashMap<>();
+
+        for(char ch : text.toCharArray()) {
+            count.put(ch, hm.getOrDefault(ch, 0)+1);
+        }
+    }
 }
