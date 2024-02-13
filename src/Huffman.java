@@ -31,4 +31,22 @@ public class Huffman {
         encodeData(root.left, str + "0", huffman);
         encodeData(root.right, str + "1",huffman);
     }
+
+    public static int decodeData(Node root, int index, StringBuilder newString) {
+        if(root == null){
+            return index;
+        }
+        if(isLeaf(root)){
+            System.out.println(root.ch);
+            return index;
+        }
+
+        index++;
+        root = (newString.charAt(index) == '0') ? root.left : root.right;
+        index = decodeData(root, index, newString);
+
+        return index;
+    }
+
+
 }
